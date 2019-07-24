@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import requests
 import datetime
 import pandas as pd
@@ -14,4 +15,6 @@ def crawl_price(stock_id):
     df = pd.read_csv(f, index_col='Date', parse_dates=['Date'])
     return df
 
-print(crawl_price('0056.TW'))
+if __name__ == '__main__':
+    print(sys.argv[1])
+    print(crawl_price(sys.argv[1]))
